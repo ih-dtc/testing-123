@@ -1,4 +1,4 @@
-title: Course Title Here
-description: A description of the course.
+title: Testing, testing, 1-2-3
+description: Unit testing for Data Science in Python
 programming_language: python
 from: python-base-prod:21
