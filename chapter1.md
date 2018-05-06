@@ -43,7 +43,14 @@ data = np.random.rand(100)
 ```
 
 
-
+`@sct`
+```{python}
+msg1 = "Not quite: check the results for the variance and standard deviation."
+msg2 = "No: what happens with the variance?"
+msg3 = "This would only be true with symmetric data!"
+msg4 = "Excellent! How would you turn this into a test?"
+test_mc(4, [msg1, msg2, msg3, msg4])
+```
 
 
 
