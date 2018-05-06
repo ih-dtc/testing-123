@@ -34,7 +34,13 @@ There is a small dataset in the `numpy` array `data` available in the shell.
 - Try computing `mean(data - mean(data))` to find interesting values of `a`.
 - How does the _shape_ of the distribution affect things?
 
+`@pre_exercise_code`
+```{python}
+import numpy as np
+np.random.seed(42)
 
+data = np.random.rand(100)
+```
 
 
 
