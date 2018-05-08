@@ -54,3 +54,73 @@ test_mc(4, [msg1, msg2, msg3, msg4])
 
 
 
+
+
+---
+## Insert exercise title here
+
+```yaml
+type: NormalExercise
+
+xp: 100
+
+key: 0bb22dda3d
+```
+
+You checked that shifting a distribution, by adding a constant to the data, does not change its variance. You now need to write a test that checks that this is true: it should generate some data $x$ and check that $\var(x)$ is the same as $\var(x + c)$ for constant $c$.
+
+A function `my_var` that takes a numpy array `x` and computes its variance is available in your namespace.
+
+`@instructions`
+Write a unit test `test_variance()` that checks that `my_var` behaves correctly when a constant is added to the data.
+
+- `test_variance` takes no arguments.
+- the test should first set the random seed to `42`.
+- the test should generate a random array `x` of size $10,000$.
+- the test should compare `my_var(x)` to `my_var(x + c)`, where `c` is a random number.
+
+`@hint`
+The variance will be a floating point number. Use `assert` and the `allclose` function from `numpy` to compare the values.
+
+`@pre_exercise_code`
+```{python}
+import numpy as np
+my_var = numpy.var
+```
+`@sample_code`
+```{python}
+# Import numpy: we need to do floating point comparisons
+
+
+# Define the unit test
+def test_variance():
+  # Create the "random" data
+  
+  
+  
+  # Assert that adding a constant does not change the variance
+  
+```
+`@solution`
+```{python}
+# Import numpy: we need to do floating point comparisons
+import numpy as np
+
+# Define the unit test
+def test_variance():
+  # Create the "random" data
+  np.random.seed(42)
+  x = np.random.rand(10000)
+  c = np.random.rand()
+  # Assert that adding a constant does not change the variance
+  assert(numpy.allclose(my_var(x), my_var(x + c)))
+```
+`@sct`
+```{python}
+import pytest
+
+pytest.main()
+```
+
+
+
