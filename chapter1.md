@@ -67,7 +67,7 @@ xp: 100
 key: 0bb22dda3d
 ```
 
-You checked that shifting a distribution, by adding a constant to the data, does not change its variance. You now need to write a test that checks that this is true: it should generate some data $x$ and check that $\var(x)$ is the same as $\var(x + c)$ for constant $c$.
+You checked that shifting a distribution, by adding a constant to the data, does not change its variance. You now need to write a test that checks that this is true: it should generate some data $x$ and check that $\mathrm{var}(x)$ is the same as $\mathrm{var}(x + c)$ for constant $c$.
 
 A function `my_var` that takes a numpy array `x` and computes its variance is available in your namespace.
 
