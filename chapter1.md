@@ -118,14 +118,10 @@ def test_variance():
 `@sct`
 ```{python}
 # Check that the test actually passes
-import pytest
 
-pytest.main()
 
 # Change to a different function that should fail, and check that:
-with pytest.raises(AssertionError):
-  my_var = np.mean
-  test_variance()
+
 
 # Check the import
 test_import("numpy")
