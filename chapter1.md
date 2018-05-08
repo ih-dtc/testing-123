@@ -57,7 +57,7 @@ test_mc(4, [msg1, msg2, msg3, msg4])
 
 
 ---
-## Insert exercise title here
+## Building a test
 
 ```yaml
 type: NormalExercise
@@ -99,7 +99,6 @@ def test_variance():
   
   
   # Assert that adding a constant does not change the variance
-  
 ```
 `@solution`
 ```{python}
@@ -117,17 +116,23 @@ def test_variance():
 ```
 `@sct`
 ```{python}
-# Check that the test actually passes
+# Check that the passes or fails the same way as the model
+exceptions = []
+for my_var in (np.var, np.mean):
+    try:
+    	test_variance()
+    except AssertionError as e:
+    	exceptions.append(e)
+    else:
+    	exceptions.append(None)
 
-
-# Change to a different function that should fail, and check that:
+Ex.test_object(exceptions)
 
 
 # Check the import
-test_import("numpy")
+Ex.test_import("numpy")
 
 # Check the function
-
 ```
 
 
