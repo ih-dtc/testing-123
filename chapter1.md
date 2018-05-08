@@ -85,7 +85,7 @@ The variance will be a floating point number. Use `assert` and the `allclose` fu
 `@pre_exercise_code`
 ```{python}
 import numpy as np
-my_var = numpy.var
+my_var = np.var
 ```
 `@sample_code`
 ```{python}
