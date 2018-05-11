@@ -169,7 +169,7 @@ We want to build a test: a function that can _repeatably_ check if our code is c
 ```yaml
 type: NormalExercise
 
-xp: 50
+xp: 25
 
 key: 13c92cf98a
 ```
@@ -220,9 +220,9 @@ print(result)
 ```
 `@sct`
 ```{undefined}
-Ex.test_object("x")
-Ex.test_object("c")
-Ex.test_object("result")
+Ex().test_object("x")
+Ex().test_object("c")
+Ex().test_object("result")
 ```
 
 
@@ -237,7 +237,7 @@ Ex.test_object("result")
 ```yaml
 type: NormalExercise
 
-xp: 50
+xp: 25
 
 key: caa80368fa
 ```
@@ -288,9 +288,130 @@ print(result)
 ```
 `@sct`
 ```{undefined}
-Ex.test_object("x")
-Ex.test_object("c")
-Ex.test_object("result")
+Ex().test_object("x")
+Ex().test_object("c")
+Ex().test_object("result")
+```
+
+
+
+
+
+
+***
+
+
+
+```yaml
+type: NormalExercise
+
+xp: 25
+
+key: c787333c6c
+```
+
+
+
+`@instructions`
+Typing out a half-dozen lines of code every time we want to repeat the test is going to get very annoying, very fast.
+
+Convert your code into a function, `test_min`. It should take no arguments and return the `result`, a boolean saying if the test passed.
+
+`@hint`
+
+
+
+`@sample_code`
+```{undefined}
+# A solution of the previous exercise
+import numpy as np
+# Convert the following code to a function
+np.random.seed(42)
+x = np.random.rand(10000)
+c = np.random.rand()
+result = np.allclose(min(x + c), min(x) + c)
+# After coding the function, call it and print the result
+print(result)
+```
+`@solution`
+```{undefined}
+# A solution of the previous exercise
+import numpy as np
+# Convert the following code to a function
+def test_min():
+  np.random.seed(42)
+  x = np.random.rand(10000)
+  c = np.random.rand()
+  result = np.allclose(min(x + c), min(x) + c)
+  return result
+# After coding the function, call it and print the result
+print(test_min())
+```
+`@sct`
+```{undefined}
+Ex().test_function("test_min")
+```
+
+
+
+
+
+
+***
+
+
+
+```yaml
+type: NormalExercise
+
+xp: 25
+
+key: 1780e19ab4
+```
+
+
+
+`@instructions`
+Imagine you have built a test for all the statistical functions. Checking the output of every test for every function is going to be dull and error-prone.
+
+Instead, our testing function should only care is the test _fails_. In this case things are sufficiently bad that it should appear as an error, or an _exception_.
+
+Change your test from the previous solution so that, instead of returning a boolean result, it instead uses the `assert` function to check if the test passed.
+
+`@hint`
+`assert` takes a single boolean (`True` or `False`) statement and does nothing (if the statement is `True`) or raises an exception (if the statement is `False`).
+
+
+`@sample_code`
+```{undefined}
+# A solution of the previous exercise
+import numpy as np
+# The testing function
+def test_min():
+  np.random.seed(42)
+  x = np.random.rand(10000)
+  c = np.random.rand()
+  result = np.allclose(min(x + c), min(x) + c)
+  return result
+# After coding the function, call it to check the test passes
+test_min()
+```
+`@solution`
+```{undefined}
+# A solution of the previous exercise
+import numpy as np
+# The testing function
+def test_min():
+  np.random.seed(42)
+  x = np.random.rand(10000)
+  c = np.random.rand()
+  assert(np.allclose(min(x + c), min(x) + c))
+# After coding the function, call it to check the test passes
+test_min()
+```
+`@sct`
+```{undefined}
+Ex().has_same_error()
 ```
 
 
