@@ -137,3 +137,94 @@ Ex.test_import("numpy")
 
 
 
+
+
+---
+## Building a test
+
+```yaml
+type: TabExercise
+
+xp: 100
+
+key: c7668b0bd0
+```
+
+We want to build a test: a function that can _repeatably_ check if our code is correct. You will do this step-by-step.
+
+
+
+
+
+
+
+
+
+
+
+***
+
+
+
+```yaml
+type: NormalExercise
+
+xp: 100
+
+key: 13c92cf98a
+```
+
+
+
+`@instructions`
+Generate "random" data $x$ and fix a constant $c$ and check that the minimum of $x$ plus the constant $c$ is the minimum of $x + c$.
+
+- Set the random seed to 42.
+- Generate `x` containing 10,000 random numbers.
+- Set `c` to be the constant 1.
+- Compare $\min(x + c)$ to $\min(x) + c$, printing if they match.
+
+`@hint`
+Make sure to set the random seed to `42` first.
+
+
+`@sample_code`
+```{undefined}
+# Import numpy
+
+# Set the random seed to 42
+np.random.seed(___)
+# Generate x containing 10000 random numbers
+x = np.random.rand(___)
+# Set c to 1
+
+# Compare min(x + c) to min(x) + c: result
+result = ___ == ___
+# Print the result
+print(___)
+```
+`@solution`
+```{undefined}
+# Import numpy
+import numpy as np
+# Set the random seed to 42
+np.random.seed(42)
+# Generate x containing 10000 random numbers
+x = np.random.rand(10000)
+# Set c to 1
+c = 1
+# Compare min(x + c) to min(x) + c: result
+result = min(x + c) == min(x) + c
+# Print the result
+print(result)
+```
+`@sct`
+```{undefined}
+Ex.test_object("x")
+Ex.test_object("c")
+Ex.test_object("result")
+```
+
+
+
+
