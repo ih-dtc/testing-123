@@ -169,7 +169,7 @@ We want to build a test: a function that can _repeatably_ check if our code is c
 ```yaml
 type: NormalExercise
 
-xp: 100
+xp: 50
 
 key: 13c92cf98a
 ```
@@ -215,6 +215,74 @@ x = np.random.rand(10000)
 c = 1
 # Compare min(x + c) to min(x) + c: result
 result = min(x + c) == min(x) + c
+# Print the result
+print(result)
+```
+`@sct`
+```{undefined}
+Ex.test_object("x")
+Ex.test_object("c")
+Ex.test_object("result")
+```
+
+
+
+
+
+
+***
+
+
+
+```yaml
+type: NormalExercise
+
+xp: 50
+
+key: caa80368fa
+```
+
+
+
+`@instructions`
+Using a fixed constant $c$ isn't a general test. Using a random single number would be better. But comparing floating point numbers added together is risky. Instead of using direct equality, use the `numpy` `allclose` function to see if the results are _close enough_.
+
+- Set the random seed to 42.
+- Generate `x` containing 10,000 random numbers.
+- Generate `c` containing a single random number.
+- Compare $\min(x + c)$ to $\min(x) + c$, printing if they are close enough.
+
+`@hint`
+`np.allclose` takes two inputs and compares if all elements are sufficiently close together.
+
+
+`@sample_code`
+```{undefined}
+# Import numpy
+import numpy as np
+# Set the random seed to 42
+
+# Generate x containing 10000 random numbers
+
+# Generate c containing one random number
+
+# Compare min(x + c) to min(x) + c: result
+result = ___
+# Print the result
+print(result)
+```
+`@solution`
+```{undefined}
+# Import numpy
+import numpy as np
+# Set the random seed to 42
+np.random.seed(42)
+# Generate x containing 10000 random numbers
+x = np.random.rand(10000)
+# Generate c containing one random number
+c = np.random.rand()
+# Compare min(x + c) to min(x) + c: result
+result = np.allclose(min(x + c), min(x) + c)
 # Print the result
 print(result)
 ```
